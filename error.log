@@ -1,0 +1,222 @@
+Traceback (most recent call last):
+  File "/home/infining/.atom/packages/python-tools/lib/tools.py", line 76, in watch
+    self._process_request(data)
+  File "/home/infining/.atom/packages/python-tools/lib/tools.py", line 61, in _process_request
+    self._write_response(self._serialize('gotoDef', script.goto_definitions()))
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/api/__init__.py", line 366, in goto_definitions
+    definitions = set(self._prepare_goto(goto_path))
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/api/__init__.py", line 298, in _prepare_goto
+    scopes = self._evaluator.eval_element(eval_stmt)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 183, in eval_element
+    types = self._eval_atom(element.children[0])
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 230, in _eval_atom
+    return self.find_types(scope, atom, stmt.start_pos, search_global=True)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 120, in find_types
+    return f.find(scopes, search_global)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/debug.py", line 52, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/finder.py", line 87, in find
+    types = self._names_to_types(names, search_global)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/finder.py", line 233, in _names_to_types
+    new_types = _name_to_types(self._evaluator, name, self.scope)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/finder.py", line 278, in _name_to_types
+    types += _remove_statements(evaluator, typ, name)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/finder.py", line 323, in _remove_statements
+    types += evaluator.eval_statement(stmt, seek_name=name)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/recursion.py", line 23, in run
+    result = func(evaluator, stmt, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/debug.py", line 52, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 135, in eval_statement
+    types = self.eval_element(stmt.get_rhs())
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 187, in eval_element
+    types = self.eval_trailer(types, trailer)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 259, in eval_trailer
+    new_types += self.execute(typ, node, trailer)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/debug.py", line 52, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 299, in execute
+    types = func(self, arguments)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/representation.py", line 364, in py__call__
+    return Function.py__call__(self, evaluator, params)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/_compatibility.py", line 122, in <lambda>
+    return lambda *args, **kwargs: self.func(*args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/representation.py", line 560, in py__call__
+    return FunctionExecution(evaluator, self, params).get_return_types()
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/recursion.py", line 100, in run
+    result = func(execution, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/representation.py", line 624, in get_return_types
+    types += self._evaluator.eval_element(r.children[1])
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 187, in eval_element
+    types = self.eval_trailer(types, trailer)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 259, in eval_trailer
+    new_types += self.execute(typ, node, trailer)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/debug.py", line 52, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 299, in execute
+    types = func(self, arguments)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/representation.py", line 364, in py__call__
+    return Function.py__call__(self, evaluator, params)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/_compatibility.py", line 122, in <lambda>
+    return lambda *args, **kwargs: self.func(*args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/representation.py", line 560, in py__call__
+    return FunctionExecution(evaluator, self, params).get_return_types()
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/recursion.py", line 100, in run
+    result = func(execution, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/representation.py", line 624, in get_return_types
+    types += self._evaluator.eval_element(r.children[1])
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 169, in eval_element
+    return self._eval_atom(element)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 230, in _eval_atom
+    return self.find_types(scope, atom, stmt.start_pos, search_global=True)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 120, in find_types
+    return f.find(scopes, search_global)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/debug.py", line 52, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/finder.py", line 87, in find
+    types = self._names_to_types(names, search_global)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/finder.py", line 233, in _names_to_types
+    new_types = _name_to_types(self._evaluator, name, self.scope)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/finder.py", line 278, in _name_to_types
+    types += _remove_statements(evaluator, typ, name)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/finder.py", line 323, in _remove_statements
+    types += evaluator.eval_statement(stmt, seek_name=name)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/recursion.py", line 23, in run
+    result = func(evaluator, stmt, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/debug.py", line 52, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 135, in eval_statement
+    types = self.eval_element(stmt.get_rhs())
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 187, in eval_element
+    types = self.eval_trailer(types, trailer)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 259, in eval_trailer
+    new_types += self.execute(typ, node, trailer)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/debug.py", line 52, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 299, in execute
+    types = func(self, arguments)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/representation.py", line 364, in py__call__
+    return Function.py__call__(self, evaluator, params)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/_compatibility.py", line 122, in <lambda>
+    return lambda *args, **kwargs: self.func(*args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/representation.py", line 560, in py__call__
+    return FunctionExecution(evaluator, self, params).get_return_types()
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/recursion.py", line 100, in run
+    result = func(execution, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/representation.py", line 624, in get_return_types
+    types += self._evaluator.eval_element(r.children[1])
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 169, in eval_element
+    return self._eval_atom(element)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 230, in _eval_atom
+    return self.find_types(scope, atom, stmt.start_pos, search_global=True)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 120, in find_types
+    return f.find(scopes, search_global)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/debug.py", line 52, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/finder.py", line 87, in find
+    types = self._names_to_types(names, search_global)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/finder.py", line 233, in _names_to_types
+    new_types = _name_to_types(self._evaluator, name, self.scope)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/finder.py", line 278, in _name_to_types
+    types += _remove_statements(evaluator, typ, name)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/finder.py", line 323, in _remove_statements
+    types += evaluator.eval_statement(stmt, seek_name=name)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/recursion.py", line 23, in run
+    result = func(evaluator, stmt, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/debug.py", line 52, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 135, in eval_statement
+    types = self.eval_element(stmt.get_rhs())
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 187, in eval_element
+    types = self.eval_trailer(types, trailer)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 259, in eval_trailer
+    new_types += self.execute(typ, node, trailer)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/debug.py", line 52, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 299, in execute
+    types = func(self, arguments)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/representation.py", line 364, in py__call__
+    return Function.py__call__(self, evaluator, params)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/_compatibility.py", line 122, in <lambda>
+    return lambda *args, **kwargs: self.func(*args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/representation.py", line 560, in py__call__
+    return FunctionExecution(evaluator, self, params).get_return_types()
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/recursion.py", line 100, in run
+    result = func(execution, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/representation.py", line 624, in get_return_types
+    types += self._evaluator.eval_element(r.children[1])
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 187, in eval_element
+    types = self.eval_trailer(types, trailer)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 267, in eval_trailer
+    new_types += get(self, node)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/iterable.py", line 229, in get_index_types
+    types += self.get_exact_index_types(index.obj)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/iterable.py", line 255, in get_exact_index_types
+    return self._evaluator.eval_element(self._items()[mixed_index])
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 169, in eval_element
+    return self._eval_atom(element)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 230, in _eval_atom
+    return self.find_types(scope, atom, stmt.start_pos, search_global=True)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/__init__.py", line 120, in find_types
+    return f.find(scopes, search_global)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/debug.py", line 52, in wrapper
+    result = func(*args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/finder.py", line 87, in find
+    types = self._names_to_types(names, search_global)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/finder.py", line 233, in _names_to_types
+    new_types = _name_to_types(self._evaluator, name, self.scope)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/cache.py", line 41, in wrapper
+    rv = function(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/finder.py", line 269, in _name_to_types
+    for_types = iterable.get_iterator_types(for_types)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/iterable.py", line 418, in get_iterator_types
+    result += it.iter_content()
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/iterable.py", line 575, in iter_content
+    module = self.var_args.get_parent_until()
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/evaluate/param.py", line 56, in get_parent_until
+    return element.get_parent_until(*args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/_compatibility.py", line 124, in <lambda>
+    return lambda *args, **kwargs: self.func(obj, *args, **kwargs)
+  File "/home/infining/.atom/packages/python-tools/lib/jedi/parser/tree.py", line 123, in get_parent_until
+    while scope.parent is not None:
+AttributeError: 'ListComprehension' object has no attribute 'parent'
