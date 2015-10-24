@@ -30,3 +30,5 @@ req = session.get(url_full)
 doc = BeautifulSoup.BeautifulSoup(req.content)
 
 print doc.findAll('a', {"class" : "gp-share"})
+
+print 'test'
