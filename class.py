@@ -1,5 +1,5 @@
 import requests
-import BeautifulSoup
+from bs4 import BeautifulSoup
 import re
 
 class course:
@@ -16,9 +16,9 @@ class course:
 
         session = requests.session()
         req = session.get(url_full)
-        doc = BeautifulSoup.BeautifulSoup(req.content)
+        doc = BeautifulSoup(req.content, "html.parser")
 
-        # Find course number on page
+        # Find the first course that matches course number given
         header ="T3"
         currentClass = doc.find("td", {"headers" : header})
         course_search = re.search("<b>(.*)</b>", str(currentClass.contents))
@@ -31,6 +31,8 @@ class course:
                 break
             course_search = re.search("<b>(.*)</b>", str(currentClass.contents))
             course_search = int(course_search.group(1))
+
+
 
         # need to check and handle multiple sections and class times
 
@@ -77,21 +79,21 @@ class course:
     def courseSDATE(self, currentClass):
         header = "T8"
         td = currentClass.findNext("td", {"headers" : header})
-        content = re.search("n(.*)&nbsp;", str(td.contents))
+        content = re.search("\\\\n(.*)\\\\xa0", str(td.contents))
         sdate = str(content.group(1))
         return sdate
 
     def courseEDATE(self, currentClass):
         header = "T9"
         td = currentClass.findNext("td", {"headers" : header})
-        content = re.search("n(.*)&nbsp;", str(td.contents))
+        content = re.search("\\\\n(.*)\\\\xa0", str(td.contents))
         edate = str(content.group(1))
         return edate
 
     def courseSTIME(self, currentClass):
         header = "T10"
         td = currentClass.findNext("td", {"headers" : header})
-        content = re.search("n(.*) -", str(td.contents))
+        content = re.search("\\\\n(.*) -", str(td.contents))
         stime = str(content.group(1))
         if stime.find('am') != -1:
             stime_h = re.search("(.*):", stime)
@@ -108,7 +110,7 @@ class course:
     def courseETIME(self, currentClass):
         header = "T10"
         td = currentClass.findNext("td", {"headers" : header})
-        content = re.search("- (.*)&nbsp;", str(td.contents))
+        content = re.search("- (.*)\\\\xa0", str(td.contents))
         stime = str(content.group(1))
         if stime.find('am') != -1:
             stime_h = re.search("(.*):", stime)
@@ -123,3 +125,5 @@ class course:
         return stime
 
 course = course(2015,'Spring','ECE',444)
+title = course.title
+print(title)
