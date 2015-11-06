@@ -52,10 +52,10 @@ class course:
             index += 1
 
         index = 0
-        for section in self.course_index:
+        for section in self.course_index:# Need to clean up this loop
             classSection = section[0]
             self.course_index[index].append(self.courseCRN(classSection))
-            self.course_index[index].append(self.courseNUM(classSection))
+            self.course_index[index].append(self.courseNUM(classSection))# This function is returning 'None'
             self.course_index[index].append(self.courseSEC(classSection))
             self.course_index[index].append(self.courseCRED(classSection))
             self.course_index[index].append(self.courseTITLE(classSection))
