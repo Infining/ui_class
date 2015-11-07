@@ -36,15 +36,17 @@ class course:
             course_search = re.search("<b>(.*)</b>", str(currentClass.contents))
             course_search = int(course_search.group(1))
 
-        self.course_index = []
+        course_index = []
+        self.course = []
         index        = 0
         nextSection  = currentClass
 
         # Determine total number of course sections and compile them into the matrix self.course_index
         while course_search == course:
-            self.course_index.append([])
-            self.course_index[index].append(nextSection)
-            nextSection = self.course_index[index][0].findNext("td", {"headers" : header})
+            course_index.append([])
+            self.course.append([])
+            course_index[index].append(nextSection)
+            nextSection = course_index[index][0].findNext("td", {"headers" : header})
             if nextSection == None: # Check for end of page
                 break
             course_search = re.search("<b>(.*)</b>", str(nextSection.contents))
@@ -52,20 +54,20 @@ class course:
             index += 1
 
         index = 0
-        for section in self.course_index:# Need to clean up this loop
+        for section in course_index:# Need to clean up this loop
             classSection = section[0]
-            self.course_index[index].append(self.courseCRN(classSection))
-            self.course_index[index].append(self.courseNUM(classSection))# This function is returning 'None'
-            self.course_index[index].append(self.courseSEC(classSection))
-            self.course_index[index].append(self.courseCRED(classSection))
-            self.course_index[index].append(self.courseTITLE(classSection))
-            self.course_index[index].append(self.courseSDATE(classSection))
-            self.course_index[index].append(self.courseEDATE(classSection))
-            self.course_index[index].append(self.courseSTIME(classSection))
-            self.course_index[index].append(self.courseETIME(classSection))
+            self.course[index].append(self.courseCRN(classSection))
+            self.course[index].append(self.courseNUM(classSection))
+            self.course[index].append(self.courseSEC(classSection))
+            self.course[index].append(self.courseCRED(classSection))
+            self.course[index].append(self.courseTITLE(classSection))
+            self.course[index].append(self.courseSDATE(classSection))
+            self.course[index].append(self.courseEDATE(classSection))
+            self.course[index].append(self.courseSTIME(classSection))
+            self.course[index].append(self.courseETIME(classSection))
             index += 1
 
-        # need to check and handle multiple sections and class times
+        # need to check and handle multiple class times
 
     # end of __init__
 
@@ -77,10 +79,9 @@ class course:
         return crn
 
     def courseNUM(self, currentClass):
-        header  = "T3"
-        td      = currentClass.findPrevious("td", {"headers" : header})
-        content = re.search("<b>(.*)</b>", str(td.contents))
+        content = re.search("<b>(.*)</b>", str(currentClass.contents))
         crn     = int(content.group(1))
+        return crn
 
     def courseSEC(self, currentClass):
         header  = "T4"
@@ -159,9 +160,9 @@ class course:
                 stime = etime + 1200
         return stime
 
-course = course(2015,'Spring','ECE',444)
-title  = course.course_index
+course = course(2015,'Spring','ECE',330)
+title  = course.course
 for section in title:
-    for atrib in section[1:]:
+    for atrib in section:
         print(atrib)
     print("-------------")
